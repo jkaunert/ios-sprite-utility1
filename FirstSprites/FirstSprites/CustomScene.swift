@@ -22,10 +22,24 @@ class CustomScene: SKScene {
         // Create move action
         let actionDuration = 1.0
         let moveAction = SKAction.move(to: position, duration: actionDuration)
-        let turnAction = SKAction.rotate(byAngle: CGFloat.pi * 2, duration: actionDuration)
-        let groupAction = SKAction.group([moveAction, turnAction])
+        //let turnAction = SKAction.rotate(byAngle: CGFloat.pi * 2, duration: actionDuration)
+        //let groupAction = SKAction.group([moveAction, turnAction])
         // Run move action
         // crab.run(moveAction)
-        crab.run(groupAction)
+        //crab.run(groupAction)
+    
+    let turnAction = SKAction.rotate(byAngle: CGFloat.pi * 2, duration: actionDuration)
+    
+        _ = 1.0
+        _ = SKAction.move(to: position, duration: actionDuration)
+        _ = SKAction.rotate(byAngle: CGFloat.pi * 2, duration: actionDuration)
+    let groupAction = SKAction.group([moveAction, turnAction])
+    crab.run(groupAction)
+    
+    let zoomAction = SKAction.scale(by: 1.3, duration: 0.3)
+    let unzoomAction = SKAction.scale(to: 1.0, duration: 0.1)
+    let sequenceAction = SKAction.sequence([zoomAction, moveAction, unzoomAction])
+    crab.run(sequenceAction)
+    
     }
 }
